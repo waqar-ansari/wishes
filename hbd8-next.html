@@ -1,0 +1,813 @@
+<html>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday</title>
+
+
+
+
+
+
+<meta property="og:title" content="Wishes" />
+<meta property="og:url" content="https://lp.ablore.com/wishes/hbd8.html" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="Wish your loved ones" />
+<meta property="og:image" content="https://lp.ablore.com/wishes/images/hbd8.png" />
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<link rel="stylesheet" href="wishes.css">
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"
+    integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous">
+    </script>
+
+<head>
+
+    <style>
+        .birthday_container {
+            position: relative;
+            margin: 0 auto;
+            width: 100%;
+            /* height: 100%; */
+            display: block;
+            background: transparent;
+            overflow: hidden;
+        }
+
+
+
+        .birthday_container p {
+            z-index: 1;
+            position: absolute;
+            bottom: 40px;
+            font-weight: 500;
+            font-size: 28px;
+            margin: 0 auto;
+            width: 100%;
+            text-align: center;
+        }
+
+        #canvas_confetti {
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+
+
+
+
+
+
+        @media only screen and (min-width: 400px) {
+
+            .balloon {
+                left: 100 !important;
+            }
+        }
+
+
+        @media only screen and (max-width: 768px) {
+            .balloon>div {
+                width: 40px !important;
+                height: 53px !important;
+            }
+
+            .balloon>div:nth-child(1) {
+                left: 0 !important;
+            }
+
+            .balloon>div:nth-child(2) {
+                left: 50 !important;
+            }
+
+            .balloon>div:nth-child(3) {
+                left: 100 !important;
+            }
+
+            .balloon>div:nth-child(4) {
+                left: 150 !important;
+            }
+
+            .balloon>div:nth-child(5) {
+                left: 200 !important;
+            }
+
+            .balloon>div:nth-child(6) {
+                left: 250 !important;
+            }
+
+            .balloon>div:before {
+                color: rgba(182, 15, 97, 0.9);
+                position: absolute;
+                bottom: -11px;
+                left: 10px !important;
+                content: "▲";
+                font-size: 1em;
+            }
+
+            .balloon span {
+                font-size: 2em !important;
+                color: white;
+                position: relative;
+                top: -5px !important;
+                left: 70% !important;
+                margin-left: -19px !important;
+            }
+        }
+
+
+
+
+
+
+
+        span {
+            /* text-transform: uppercase; */
+        }
+
+        .container {
+            /* width: 800px; */
+            /* height: 420px; */
+            padding: 10px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 99 !important;
+        }
+
+        .balloon {
+            width: 738px;
+            margin: 0 auto;
+            padding-top: 30px;
+            position: relative;
+        }
+
+        .balloon>div {
+            width: 104px;
+            height: 140px;
+            background: rgba(182, 15, 97, 0.9);
+            border-radius: 0;
+            border-radius: 80% 80% 80% 80%;
+            margin: 0 auto;
+            position: absolute;
+            padding: 10px;
+            box-shadow: inset 17px 7px 10px rgba(182, 15, 97, 0.9);
+            -webkit-transform-origin: bottom center;
+        }
+
+        .balloon>div:nth-child(1) {
+            background: rgba(182, 15, 97, 0.9);
+            left: 0;
+            box-shadow: inset 10px 10px 10px rgba(135, 11, 72, 0.9);
+            -webkit-animation: balloon1 6s ease-in-out infinite;
+            -moz-animation: balloon1 6s ease-in-out infinite;
+            -o-animation: balloon1 6s ease-in-out infinite;
+            animation: balloon1 6s ease-in-out infinite;
+        }
+
+        .balloon>div:nth-child(1):before {
+            color: rgba(182, 15, 97, 0.9);
+        }
+
+        .balloon>div:nth-child(2) {
+            background: rgba(242, 112, 45, 0.9);
+            left: 120px;
+            box-shadow: inset 10px 10px 10px rgba(222, 85, 14, 0.9);
+            -webkit-animation: balloon2 6s ease-in-out infinite;
+            -moz-animation: balloon2 6s ease-in-out infinite;
+            -o-animation: balloon2 6s ease-in-out infinite;
+            animation: balloon2 6s ease-in-out infinite;
+        }
+
+        .balloon>div:nth-child(2):before {
+            color: rgba(242, 112, 45, 0.9);
+        }
+
+        .balloon>div:nth-child(3) {
+            background: rgba(45, 181, 167, 0.9);
+            left: 240px;
+            box-shadow: inset 10px 10px 10px rgba(35, 140, 129, 0.9);
+            -webkit-animation: balloon4 6s ease-in-out infinite;
+            -moz-animation: balloon4 6s ease-in-out infinite;
+            -o-animation: balloon4 6s ease-in-out infinite;
+            animation: balloon4 6s ease-in-out infinite;
+        }
+
+        .balloon>div:nth-child(3):before {
+            color: rgba(45, 181, 167, 0.9);
+        }
+
+        .balloon>div:nth-child(4) {
+            background: rgba(190, 61, 244, 0.9);
+            left: 360px;
+            box-shadow: inset 10px 10px 10px rgba(173, 14, 240, 0.9);
+            -webkit-animation: balloon1 5s ease-in-out infinite;
+            -moz-animation: balloon1 5s ease-in-out infinite;
+            -o-animation: balloon1 5s ease-in-out infinite;
+            animation: balloon1 5s ease-in-out infinite;
+        }
+
+        .balloon>div:nth-child(4):before {
+            color: rgba(190, 61, 244, 0.9);
+        }
+
+        .balloon>div:nth-child(5) {
+            background: rgba(180, 224, 67, 0.9);
+            left: 480px;
+            box-shadow: inset 10px 10px 10px rgba(158, 206, 34, 0.9);
+            -webkit-animation: balloon3 5s ease-in-out infinite;
+            -moz-animation: balloon3 5s ease-in-out infinite;
+            -o-animation: balloon3 5s ease-in-out infinite;
+            animation: balloon3 5s ease-in-out infinite;
+        }
+
+        .balloon>div:nth-child(5):before {
+            color: rgba(180, 224, 67, 0.9);
+        }
+
+        .balloon>div:nth-child(6) {
+            background: rgba(242, 194, 58, 0.9);
+            left: 600px;
+            box-shadow: inset 10px 10px 10px rgba(234, 177, 15, 0.9);
+            -webkit-animation: balloon2 3s ease-in-out infinite;
+            -moz-animation: balloon2 3s ease-in-out infinite;
+            -o-animation: balloon2 3s ease-in-out infinite;
+            animation: balloon2 3s ease-in-out infinite;
+        }
+
+        .balloon>div:nth-child(6):before {
+            color: rgba(242, 194, 58, 0.9);
+        }
+
+        .balloon>div:before {
+            color: rgba(182, 15, 97, 0.9);
+            position: absolute;
+            bottom: -11px;
+            left: 52px;
+            content: "▲";
+            font-size: 1em;
+        }
+
+        .balloon span {
+            font-size: 4.8em;
+            color: white;
+            position: relative;
+            top: 0px;
+            left: 50%;
+            margin-left: -27px;
+        }
+
+        /*BALLOON 1 4*/
+        @-webkit-keyframes balloon1 {
+
+            0%,
+            100% {
+                -webkit-transform: translateY(0) rotate(-6deg);
+            }
+
+            50% {
+                -webkit-transform: translateY(-20px) rotate(8deg);
+            }
+        }
+
+        @-moz-keyframes balloon1 {
+
+            0%,
+            100% {
+                -moz-transform: translateY(0) rotate(-6deg);
+            }
+
+            50% {
+                -moz-transform: translateY(-20px) rotate(8deg);
+            }
+        }
+
+        @-o-keyframes balloon1 {
+
+            0%,
+            100% {
+                -o-transform: translateY(0) rotate(-6deg);
+            }
+
+            50% {
+                -o-transform: translateY(-20px) rotate(8deg);
+            }
+        }
+
+        @keyframes balloon1 {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(-6deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(8deg);
+            }
+        }
+
+        /* BAllOON 2 5*/
+        @-webkit-keyframes balloon2 {
+
+            0%,
+            100% {
+                -webkit-transform: translateY(0) rotate(6eg);
+            }
+
+            50% {
+                -webkit-transform: translateY(-30px) rotate(-8deg);
+            }
+        }
+
+        @-moz-keyframes balloon2 {
+
+            0%,
+            100% {
+                -moz-transform: translateY(0) rotate(6deg);
+            }
+
+            50% {
+                -moz-transform: translateY(-30px) rotate(-8deg);
+            }
+        }
+
+        @-o-keyframes balloon2 {
+
+            0%,
+            100% {
+                -o-transform: translateY(0) rotate(6deg);
+            }
+
+            50% {
+                -o-transform: translateY(-30px) rotate(-8deg);
+            }
+        }
+
+        @keyframes balloon2 {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(6deg);
+            }
+
+            50% {
+                transform: translateY(-30px) rotate(-8deg);
+            }
+        }
+
+        /* BAllOON 0*/
+        @-webkit-keyframes balloon3 {
+
+            0%,
+            100% {
+                -webkit-transform: translate(0, -10px) rotate(6eg);
+            }
+
+            50% {
+                -webkit-transform: translate(-20px, 30px) rotate(-8deg);
+            }
+        }
+
+        @-moz-keyframes balloon3 {
+
+            0%,
+            100% {
+                -moz-transform: translate(0, -10px) rotate(6eg);
+            }
+
+            50% {
+                -moz-transform: translate(-20px, 30px) rotate(-8deg);
+            }
+        }
+
+        @-o-keyframes balloon3 {
+
+            0%,
+            100% {
+                -o-transform: translate(0, -10px) rotate(6eg);
+            }
+
+            50% {
+                -o-transform: translate(-20px, 30px) rotate(-8deg);
+            }
+        }
+
+        @keyframes balloon3 {
+
+            0%,
+            100% {
+                transform: translate(0, -10px) rotate(6eg);
+            }
+
+            50% {
+                transform: translate(-20px, 30px) rotate(-8deg);
+            }
+        }
+
+        /* BAllOON 3*/
+        @-webkit-keyframes balloon4 {
+
+            0%,
+            100% {
+                -webkit-transform: translate(10px, -10px) rotate(-8eg);
+            }
+
+            50% {
+                -webkit-transform: translate(-15px, 20px) rotate(10deg);
+            }
+        }
+
+        @-moz-keyframes balloon4 {
+
+            0%,
+            100% {
+                -moz-transform: translate(10px, -10px) rotate(-8eg);
+            }
+
+            50% {
+                -moz-transform: translate(-15px, 10px) rotate(10deg);
+            }
+        }
+
+        @-o-keyframes balloon4 {
+
+            0%,
+            100% {
+                -o-transform: translate(10px, -10px) rotate(-8eg);
+            }
+
+            50% {
+                -o-transform: translate(-15px, 10px) rotate(10deg);
+            }
+        }
+
+        @keyframes balloon4 {
+
+            0%,
+            100% {
+                transform: translate(10px, -10px) rotate(-8eg);
+            }
+
+            50% {
+                transform: translate(-15px, 10px) rotate(10deg);
+            }
+        }
+
+        h1 {
+            position: relative;
+            top: 200px;
+            text-align: center;
+            color: black;
+            font-size: 3.5em;
+        }
+
+        .container .main {
+            position: relative;
+            top: 200px;
+            text-align: center;
+            height: 800px;
+            justify-content: center;
+            justify-items: center;
+        }
+
+        .main p {
+            position: relative;
+            top: 200px;
+            text-align: center;
+        }
+    </style>
+    <link rel="stylesheet" href="wishes.css">
+    <script>
+        const myKeysValues = window.location.search;
+        const urlParams = new URLSearchParams(myKeysValues);
+        const param1 = urlParams.get('name');
+    </script>
+
+    <script>
+        var x = document.URL
+    </script>
+</head>
+
+<body>
+
+
+
+    <div class="top-bar">
+
+    </div>
+
+
+
+    <div id="sidebar">
+
+        <ul>
+            <li><a href="https://lp.ablore.com/wishes/">Home</a></li>
+            <li><a href="https://lp.ablore.com/wishes/republic-d.html">Republic Day Wishes</a></li>
+            <li><a href="https://lp.ablore.com/wishes/lohri.html">Lohri Wishes</a></li>
+            <li><a href="https://lp.ablore.com/wishes/hbd.html">Birthday Wishes</a></li>
+            <li><a href="https://lp.ablore.com/wishes/eid.html">Eid Wishes</a></li>
+            <li><a href="https://lp.ablore.com/wishes/valentine.html">Valentine Wishes</a></li>
+            <li><a href="https://lp.ablore.com/wishes/children-day.html">Children's Day Wishes</a></li>
+            <li><a href="https://lp.ablore.com/wishes/father-day.html">Father's Day Wishes</a></li>
+            <li><a href="https://lp.ablore.com/wishes/mother-day.html">Mother's Day Wishes</a></li>
+            <li><a href="https://lp.ablore.com/wishes/independence-day.html">Independence Day Wishes</a></li>
+            <li><a href="https://lp.ablore.com/wishes/christmas.html">Christmas Wishes</a></li>
+            <li><a href="https://lp.ablore.com/wishes/diwali.html">Diwali Wishes</a></li>
+            <li><a href="https://lp.ablore.com/wishes/holi.html">Holi Wishes</a></li>
+            <li><a href="https://lp.ablore.com/wishes/raksha-bandhan.html">Raksha Bandhan Wishes</a></li>
+        </ul>
+
+        <div id="sidebar-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+    </div>
+
+
+
+
+
+    <div class="dialog-birthday_message">
+
+        <div id="birthday_container" class="birthday_container">
+
+            <canvas id="canvas_confetti" width="600px" height="400px"></canvas>
+
+
+
+
+
+            <div class="container">
+                <div class="balloon">
+                    <div><span>☺</span>
+                    </div>
+                    <div><span>B</span>
+                    </div>
+                    <div><span>D</span>
+                    </div>
+                    <div><span>A</span>
+                    </div>
+                    <div><span>Y</span>
+                    </div>
+                    <div><span>☺</span>
+                    </div>
+                </div>
+                <h1>
+
+                    <h1 class="wished-hbd">
+                        <script>
+                                ('name');
+                            document.write(param1);
+                        </script>
+                    </h1>
+
+                </h1>
+
+                <!-- <p><img src="images/lohri.jpeg" class="img-fluid b-image" style="height: 600px;" alt=""></p> -->
+
+
+
+
+
+                <div class="main">
+                    <img src="images/hbd8.gif" class="img-fluid" style="height: 400px;" alt="">
+                    <br>
+
+
+
+
+                    <br>
+                    <a href="hbd8.html">
+                        <button class="create-wish">
+                            👉 Enter Your Message
+
+                        </button>
+                    </a>
+                    <br>
+                    <span style="font-weight: 600; font-size: 1.5rem;">Share it on : </span>
+                    <img src="images/whatsapp.png" class="img-fluid" id="whatsapp" alt="whatsapp">
+                    <img src="images/facebook.png" class="img-fluid" id="facebook" alt="facebook">
+
+
+
+                </div>
+
+
+                <div class="also-like" style="margin-top: -50px !important;">
+                    <h2>You may also like</h2>
+                    <div class="images">
+                        <a href="https://lp.ablore.com/wishes/hbd.html"><img src="images/hbd.gif" class="img-fluid" alt=""></a>
+                        <a href="https://lp.ablore.com/wishes/hbd2.html"><img src="images/hbd2.gif" class="img-fluid"
+                                alt=""></a>
+                        <a href="https://lp.ablore.com/wishes/hbd3.html"><img src="images/hbd3.gif" class="img-fluid"
+                                alt=""></a>
+                        <a href="https://lp.ablore.com/wishes/hbd4.html"><img src="images/hbd4.gif" class="img-fluid"
+                                alt=""></a>
+                        <a href="https://lp.ablore.com/wishes/hbd5.html"><img src="images/hbd5.gif" class="img-fluid"
+                                alt=""></a>
+                        <a href="https://lp.ablore.com/wishes/hbd6.html"><img src="images/hbd6.gif" class="img-fluid"
+                                alt=""></a>
+                        <a href="https://lp.ablore.com/wishes/hbd7.html"><img src="images/hbd7.gif" class="img-fluid"
+                                alt=""></a>
+                        <a href="https://lp.ablore.com/wishes/hbd9.html"><img src="images/hbd9.gif" class="img-fluid"
+                                alt=""></a>
+                        <a href="https://lp.ablore.com/wishes/hbd10.html"><img src="images/hbd10.gif" class="img-fluid"
+                                alt=""></a>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        //Setup canvas by creating in doc
+        var canvas = document.getElementById('canvas_confetti');
+        var context = canvas.getContext('2d');
+        canvas.width = document.getElementById('birthday_container').clientWidth;
+        canvas.height = document.getElementById('birthday_container').clientHeight;
+        //document.body.appendChild(canvas);
+        document.getElementById('birthday_container').appendChild(canvas);
+        var calculatedDensity = canvas.width * 0.0085;
+        var calculatedVelocity = canvas.width * 0.0037;
+        var calculatedLife = canvas.height * .65;
+        var calculatedStartingX = canvas.width / 2;
+
+
+        //Generating many particles
+        //Make object with settings for function
+        var particles = {},
+            particleIndex = 0,
+            settings = {
+                density: calculatedDensity,
+                particleSize: 8,
+                particleSizeVariety: 1.5,
+                startingX: calculatedStartingX,
+                startingY: -20,
+                velX: calculatedVelocity,
+                velY: 2,
+                gravity: 0.015,
+                //maxLife: 300,
+                maxLife: calculatedLife,
+                particleColours: ["#F06292", "#BA68C8", "#64B5F6", "#4DD0E1", "#81C784", "#DCE775", "#FFD54F", "#FF8A65", "#EEEEEE"]
+            };
+
+        //Function that will create particles
+        function Particle() {
+            //Starting positions and velocities
+            this.x = settings.startingX;
+            this.y = settings.startingY;
+            //Random X and Y velocities
+            this.vx = (Math.random() * (settings.velX)) - (settings.velX / 2);
+            this.vy = (Math.random() * (settings.velY)) - (settings.velY / 2);
+            //this.vx = 10;
+            //this.vy = 10;
+
+            //Set up rotation & center of origin
+            this.rot = 0;
+            this.centerOfOriginX = -this.particleSize / 2;
+            this.centerOfOriginY = -this.particleSize / 4;
+
+            this.particleSize = parseInt((Math.random() * (settings.particleSizeVariety * 2)) + settings.particleSize);
+
+            //Choose a random colour
+            this.particleColor = settings.particleColours[parseInt(Math.random() * settings.particleColours.length)];
+
+            //Add new particle to index - this is a way to store the particles created
+            particleIndex++;
+            particles[particleIndex] = this;
+            this.id = particleIndex;
+            //Will be used later to remove particle
+            this.life = -10 + parseInt(Math.random() * 20);
+        }
+
+        //Add a 'draw' method to the Particle function
+        Particle.prototype.draw = function () {
+
+            this.x += this.vx;
+            this.y += this.vy;
+
+            //calculate rotation
+            var period = 100;
+            this.rot += Math.sin(this.life * 2 * Math.PI / period) / 2 * (Math.random() * 2);
+
+            //Add gravity
+            this.vy += settings.gravity;
+
+            //Age the particle by adding to 'life'
+            this.life++;
+
+            //Remove the particle if it's old
+            if (this.life >= settings.maxLife) {
+                delete particles[this.id];
+            }
+
+            //Create shape
+            context.clearRect(0, settings.groundLevel, canvas.width, canvas.height);
+            context.beginPath();
+            context.fillStyle = this.particleColor;
+            //save context position
+            context.save();
+            context.translate(this.x, this.y);
+
+            var rotationAmount = 5;
+            //rotate by sine value
+            context.rotate(this.rot / rotationAmount);
+
+            //translate to near random center of origin
+            context.translate(this.centerOfOriginX, this.centerOfOriginY);
+            //context.translate(0,0);
+
+            context.globalAlpha = 0.9;
+            context.fillRect(0, 0, this.particleSize, this.particleSize / 2);
+            context.restore();
+        }
+
+        //Set up interval to draw particles
+        setInterval(function () {
+            //Fillstyle transparency adds motion trails
+            //#673AB7 purple
+            //#2196F3 blue
+            //#009688 teal
+            //#FFEB3B yellow
+            // "rgba(39,174,96,.98)"; green
+            context.fillStyle = '#FF8A8A'
+            context.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Draw the particles
+            for (var i = 0; i < settings.density; i++) {
+                // Random chance of creating a particle corresponding to an chance of 1 per second per "density" value
+                if (Math.random() > 0.97) {
+                    new Particle();
+                }
+            }
+
+            //Use the draw method for all the particles in particles[]
+            for (var i in particles) {
+                particles[i].draw();
+            }
+        }, 16);
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous">
+        </script>
+    <script>
+        $("#whatsapp").wrap($("<a>").attr("href", "https://wa.me/?text=Hope all your birthday wishes come true" + param1 + "! I hope your celebration gives you many happy memories!. Wishing You a very Happy Birthday and splended year ahead. Create your personalized wishes with this link. " + x));
+        $("#facebook").wrap($("<a>").attr("href", "https://www.facebook.com/sharer/sharer.php?u=" + x));
+
+    </script>
+    <script>
+
+        $(document).ready(function () {
+            $('#sidebar-btn').click(function () {
+                $('#sidebar').toggleClass('visible');
+            });
+        });
+
+    </script>
+    <script>
+        $(document).click(function () {
+            var sidebar = $("#sidebar");
+            if (!sidebar.is(event.target) &&
+                !sidebar.has(event.target).length) {
+                sidebar.removeClass('visible');
+                $("body").removeClass('bgstop');
+            }
+        });
+    </script>
+    
+    
+    <script>
+        $(document).ready(function () {
+            $('#sidebar-btn').click(function () {
+                $("body").addClass('bgstop');
+            });
+        });
+    </script>
+</body>
+
+</html>
